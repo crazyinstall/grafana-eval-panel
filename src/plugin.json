@@ -1,0 +1,28 @@
+{
+  "type": "panel",
+  "name": "Eval Panel for Grafana",
+  "id": "westc-eval-panel",
+
+  "info": {
+    "description": "Eval panel for Grafana.",
+    "author": {
+      "name": "westc",
+      "url": "https://github.com/westc/grafana-eval-panel.git"
+    },
+    "keywords": ["panel"],
+    "logos": {
+      "small": "img/groupedBarChart_logo_small.png",
+      "large": "img/groupedBarChart_logo_large.png"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/westc/grafana-eval-panel.git"}
+    ],
+    "version": "0.0.1",
+    "updated": "2019-03-27"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "4.6",
+    "plugins": [ ]
+  }
+}

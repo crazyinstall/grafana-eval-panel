@@ -1,0 +1,11 @@
+<div>
+  <h5>JavaScript Code</h5><br />
+  <div>The following should contain a <code>main()</code> function which when called will accept this panel's object and will return the HTML to be used in this panel.</div>
+  <div class="gf-form gf-form--grow">
+    <code-editor content="ctrl.panel.code" on-change="ctrl.render()" data-mode="javascript" data-max-lines="20">
+    </code-editor>
+  </div>
+  <div class="gf-form">
+    <gf-form-switch class="gf-form" label="Allow Scrollbars" label-class="width-auto" checked="ctrl.panel.allowScrollbars" on-change="ctrl.render()"></gf-form-switch>
+  </div>
+</div>

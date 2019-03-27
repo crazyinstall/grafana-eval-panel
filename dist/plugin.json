@@ -1,0 +1,28 @@
+{
+  "type": "panel",
+  "name": "CWest Eval Panel",
+  "id": "westc-eval-panel",
+
+  "info": {
+    "description": "Eval panel from Chris West.",
+    "author": {
+      "name": "westc",
+      "url": "https://github.com/westc/westc-eval-panel.git"
+    },
+    "keywords": ["panel"],
+    "logos": {
+      "small": "img/groupedBarChart_logo_small.png",
+      "large": "img/groupedBarChart_logo_large.png"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/westc/westc-eval-panel.git"}
+    ],
+    "version": "0.0.1",
+    "updated": "2019-03-23"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "4.6",
+    "plugins": [ ]
+  }
+}
