@@ -12,7 +12,8 @@ function renderNow(e, jElem) {
       isValid = false,
       ctrl = this,
       data = ctrl.data,
-      elemContent = jElem.find('.panel-content').html('')[0];
+      jContent = jElem.find('.panel-content').html(''),
+      elemContent = jContent[0];
 
   elemContent.className = elemContent.className.replace(/\b_\d+\b/g, ' ').replace(/\s+/g, ' ').trim();
   
@@ -22,14 +23,14 @@ function renderNow(e, jElem) {
         function css(styles) { return JS.css(styles, elemContent); }
         var fn = new Function('ctrl, dom, css', ctrl.panel.code + '\nreturn main(ctrl)');
         var result = JS.toArray(fn(ctrl, JS.dom, css))
-          .forEach(function(carry, elems) {
+          .forEach(function(elems) {
             (JS.typeOf(elems) === 'String'
               ? jQuery('<div>').html(elems).toArray()
               : (elems && elems.nodeType === 1)
                 ? [elems]
                 : []
             ).forEach(function (elem) { elemContent.appendChild(elem); });
-          }, []);
+          });
         isValid = true;
       }
       catch(e) {

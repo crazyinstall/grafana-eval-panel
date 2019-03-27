@@ -41,22 +41,30 @@ function renderNow(e, jElem) {
       isValid = false,
       ctrl = this,
       data = ctrl.data,
-      elem = jElem[0],
-      jContent = jQuery('.panel-content', elem).html('');
+      jContent = jElem.find('.panel-content').html(''),
+      elemContent = jContent[0];
+  elemContent.className = elemContent.className.replace(/\b_\d+\b/g, ' ').replace(/\s+/g, ' ').trim();
 
   if (data) {
     if (data.type === 'table') {
       try {
         var css = function css(styles) {
-          return _YourJS.default.css(styles, jContent[0]);
+          return _YourJS.default.css(styles, elemContent);
         };
 
         var fn = new Function('ctrl, dom, css', ctrl.panel.code + '\nreturn main(ctrl)');
 
-        var result = _YourJS.default.toArray(fn(ctrl, _YourJS.default.dom, css)).reduce(function (carry, value) {
-          return carry.concat(_YourJS.default.typeOf(value) === 'String' ? jQuery('<div>').html(value).toArray() : [value]);
-        }, []).forEach(function (elem) {
-          jContent.append(elem);
+        var result = _YourJS.default.toArray(fn(ctrl, _YourJS.default.dom, css)).forEach(function (elems) {
+          console.log({
+            elems: elems
+          });
+          (_YourJS.default.typeOf(elems) === 'String' ? jQuery('<div>').html(elems).toArray() : elems && elems.nodeType === 1 ? [elems] : []).forEach(function (elem) {
+            console.log({
+              elemContent: elemContent,
+              elem: elem
+            });
+            elemContent.appendChild(elem);
+          });
         });
 
         isValid = true;
